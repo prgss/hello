@@ -11,7 +11,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	if len(response) == 0 {
 		response = "Hello OpenShift for Developers!"
 	}
-	auto rh = *r
+	rh := *r
 	w.Header().Set("hfulllower", "value")
 	w.Header().Set("Hmix", "value")
 	w.Header().Set("HFULLUPPER", "value")
