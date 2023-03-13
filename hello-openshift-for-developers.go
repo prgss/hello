@@ -11,7 +11,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	if len(response) == 0 {
 		response = "Hello OpenShift for Developers!"
 	}
-	rh := *r
+
 	w.Header().Set("hfulllower", "value")
 	w.Header().Set("Hmix", "value")
 	w.Header().Set("HFULLUPPER", "value")
@@ -19,10 +19,9 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("clientheaderMIX", rh.Header.Get("clientheaderMIX"))
 	w.Header().Set("CLIENTHEADERFULLUPPER", rh.Header.Get("CLIENTHEADERFULLUPPER"))
 
-	for k := range rh.Header {
-		fmt.Println(k)
-	}
-	
+	for headerName, headerValue := range r.Header {
+		fmt.Printf("\t%s = %s\n", headerName, strings.Join(headerValue, ", "))
+  	}
 	fmt.Fprintln(w, response)
 	fmt.Println("Servicing an impatient beginner's request.")
 }
