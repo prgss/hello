@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
-	"string"
+	"strings"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
