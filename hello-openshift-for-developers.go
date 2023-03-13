@@ -14,6 +14,9 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("hfulllower", "value")
 	w.Header().Set("Hmix", "value")
 	w.Header().Set("HFULLUPPER", "value")
+	w.Header().Set("clientheaderfulllower", r.Header().Get("clientheaderfulllower"))
+	w.Header().Set("clientheaderMIX", r.Header().Get("clientheaderMIX"))
+	w.Header().Set("CLIENTHEADERFULLUPPER", r.Header().Get("CLIENTHEADERFULLUPPER"))
 	fmt.Fprintln(w, response)
 	fmt.Println("Servicing an impatient beginner's request.")
 }
