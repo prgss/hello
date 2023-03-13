@@ -23,6 +23,13 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	for headerName, headerValue := range r.Header {
 		fmt.Printf("\t%s = %s\n", headerName, strings.Join(headerValue, ", "))
   	}
+	
+	for name, headers := range r.Header {
+		for _, h := range headers {
+			fmt.Fprintf(w, "%v: %v\n", name, h)
+		}
+	}
+	
 	fmt.Fprintln(w, response)
 	fmt.Println("Servicing an impatient beginner's request.")
 }
