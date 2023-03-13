@@ -11,7 +11,9 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	if len(response) == 0 {
 		response = "Hello OpenShift for Developers!"
 	}
-
+	w.Header().Set("hfulllower", "value")
+	w.Header().Set("Hmix", "value")
+	w.Header().Set("HFULLUPPER", "value")
 	fmt.Fprintln(w, response)
 	fmt.Println("Servicing an impatient beginner's request.")
 }
