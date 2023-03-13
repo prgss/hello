@@ -30,6 +30,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	
+	fmt.Println(r)
+	
 	fmt.Fprintln(w, response)
 	fmt.Println("Servicing an impatient beginner's request.")
 }
