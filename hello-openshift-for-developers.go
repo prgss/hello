@@ -18,7 +18,11 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("clientheaderfulllower", rh.Header.Get("clientheaderfulllower"))
 	w.Header().Set("clientheaderMIX", rh.Header.Get("clientheaderMIX"))
 	w.Header().Set("CLIENTHEADERFULLUPPER", rh.Header.Get("CLIENTHEADERFULLUPPER"))
-	fmt.Println(w.Header())
+
+	for k, v := range rh.Header {
+		fmt.Println(k)
+	}
+	
 	fmt.Fprintln(w, response)
 	fmt.Println("Servicing an impatient beginner's request.")
 }
