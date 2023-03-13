@@ -19,7 +19,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("clientheaderMIX", rh.Header.Get("clientheaderMIX"))
 	w.Header().Set("CLIENTHEADERFULLUPPER", rh.Header.Get("CLIENTHEADERFULLUPPER"))
 
-	for k, v := range rh.Header {
+	for k := range rh.Header {
 		fmt.Println(k)
 	}
 	
